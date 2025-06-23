@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Colores personalizados para el tema ganadero
+				pastoral: {
+					50: '#f0f9f4',
+					100: '#dcf4e3',
+					200: '#bce7cc',
+					300: '#8dd4a8',
+					400: '#57b87c',
+					500: '#349f5a',
+					600: '#278247',
+					700: '#21683c',
+					800: '#1e5432',
+					900: '#1a452a',
+				},
+				earth: {
+					50: '#faf9f7',
+					100: '#f2f0eb',
+					200: '#e6e1d7',
+					300: '#d4ccba',
+					400: '#bfb29b',
+					500: '#a6977d',
+					600: '#9a8870',
+					700: '#80705e',
+					800: '#695d50',
+					900: '#564c42',
 				}
 			},
 			borderRadius: {
@@ -84,11 +110,25 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'slide-in-left': {
+					'0%': { opacity: '0', transform: 'translateX(-20px)' },
+					'100%': { opacity: '1', transform: 'translateX(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out',
+				'slide-in-left': 'slide-in-left 0.6s ease-out'
+			},
+			fontFamily: {
+				'heading': ['Inter', 'sans-serif'],
+				'body': ['Inter', 'sans-serif'],
 			}
 		}
 	},

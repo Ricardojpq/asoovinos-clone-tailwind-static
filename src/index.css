@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -98,6 +92,200 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Botones personalizados */
+  .btn-primary {
+    @apply bg-pastoral-600 hover:bg-pastoral-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pastoral-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-pastoral-600 text-pastoral-600 hover:bg-pastoral-50 px-6 py-3 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pastoral-500 focus:ring-offset-2;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+  }
+
+  .card-content {
+    @apply p-6 lg:p-8;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-gray-700 hover:text-pastoral-600 font-medium transition-colors duration-200 relative;
+  }
+
+  .nav-link:hover::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-pastoral-600 transform scale-x-100 transition-transform duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-pastoral-600 transform scale-x-0 transition-transform duration-200;
+  }
+
+  .nav-link-active {
+    @apply text-pastoral-600 font-semibold;
+  }
+
+  /* Utilidades para texto */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Gradients personalizados */
+  .gradient-hero {
+    @apply bg-gradient-to-br from-pastoral-600 via-pastoral-700 to-pastoral-800;
+  }
+
+  .gradient-overlay {
+    @apply bg-gradient-to-t from-black/60 via-black/20 to-transparent;
+  }
+
+  /* Scrollbar personalizada */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-lg;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-pastoral-300 rounded-lg hover:bg-pastoral-400;
+  }
+
+  /* Animaciones de entrada */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Efectos de hover para imágenes */
+  .image-hover {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  /* Sombras personalizadas */
+  .shadow-soft {
+    box-shadow: 0 4px 20px rgba(52, 159, 90, 0.1);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(52, 159, 90, 0.3);
+  }
+}
+
+/* Responsive typography */
+@layer utilities {
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+}
+
+/* Focus styles para accesibilidad */
+@layer base {
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-pastoral-500 ring-offset-2;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
   }
 }
