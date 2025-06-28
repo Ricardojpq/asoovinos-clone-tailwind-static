@@ -63,18 +63,30 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Colores personalizados para el tema ganadero
-				pastoral: {
-					50: '#f0f9f4',
-					100: '#dcf4e3',
-					200: '#bce7cc',
-					300: '#8dd4a8',
-					400: '#57b87c',
-					500: '#349f5a',
-					600: '#278247',
-					700: '#21683c',
-					800: '#1e5432',
-					900: '#1a452a',
+				// Colores del tema ASOCABRA basado en el logo
+				golden: {
+					50: '#fffbf0',
+					100: '#fff6e0',
+					200: '#ffedcc',
+					300: '#ffe0b3',
+					400: '#ffcd80',
+					500: '#ffb84d',
+					600: '#ff9e1a',
+					700: '#e6890f',
+					800: '#cc7a0d',
+					900: '#b36b0b',
+				},
+				bronze: {
+					50: '#fdf8f3',
+					100: '#fbf0e6',
+					200: '#f6e1cd',
+					300: '#f0d1b4',
+					400: '#e5b382',
+					500: '#d99550',
+					600: '#c7851e',
+					700: '#b4770d',
+					800: '#a16908',
+					900: '#8e5b04',
 				},
 				earth: {
 					50: '#faf9f7',
@@ -118,17 +130,31 @@ export default {
 				'slide-in-left': {
 					'0%': { opacity: '0', transform: 'translateX(-20px)' },
 					'100%': { opacity: '1', transform: 'translateX(0)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(255, 158, 26, 0.3)' },
+					'50%': { boxShadow: '0 0 40px rgba(255, 158, 26, 0.6)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'slide-in-left': 'slide-in-left 0.6s ease-out'
+				'slide-in-left': 'slide-in-left 0.6s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
 			},
 			fontFamily: {
 				'heading': ['Inter', 'sans-serif'],
 				'body': ['Inter', 'sans-serif'],
+			},
+			boxShadow: {
+				'golden': '0 4px 20px rgba(255, 158, 26, 0.2)',
+				'golden-lg': '0 10px 40px rgba(255, 158, 26, 0.3)',
 			}
 		}
 	},

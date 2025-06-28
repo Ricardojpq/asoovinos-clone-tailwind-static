@@ -3,40 +3,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* ================================
+   TEMA ASOCABRA - SISTEMA DE DISEÑO
+   ================================
+   
+   Inspirado en el logo ASOCABRA:
+   - Dorado principal: #ff9e1a (golden-600)
+   - Bronce/Cobre: #d99550 (bronze-500) 
+   - Tierra: #a6977d (earth-500)
+   - Negro del logo para textos
+   
+   Paleta de colores:
+   - Golden: Tonos dorados del logo (principal)
+   - Bronze: Tonos bronce/cobre (secundario)
+   - Earth: Tonos tierra/marrón (neutro)
+*/
 
 @layer base {
   :root {
+    /* Tema Claro */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 20 14.3% 4.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 32 94% 55%; /* golden-600 */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 30 40% 70%; /* bronze-400 */
+    --secondary-foreground: 20 14.3% 4.1%;
+    --muted: 30 33% 90%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 32 100% 84%; /* golden-200 */
+    --accent-foreground: 20 14.3% 4.1%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 32 94% 55%;
+    --radius: 0.75rem;
+    
+    /* Sidebar colors */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -48,36 +55,31 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    /* Tema Oscuro */
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 24 9.8% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 32 94% 55%; /* golden-600 - mantiene el dorado */
+    --primary-foreground: 0 0% 9%;
+    --secondary: 30 20% 20%; /* bronze oscuro */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 25 9.8% 15%;
+    --muted-foreground: 25 5.3% 60%;
+    --accent: 32 84% 20%; /* golden oscuro */
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 25 9.8% 15%;
+    --input: 25 9.8% 15%;
+    --ring: 32 94% 55%;
+    
+    /* Sidebar colors dark */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 32 94% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
@@ -92,7 +94,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body transition-colors duration-300;
   }
 
   html {
@@ -101,44 +103,80 @@
 }
 
 @layer components {
-  /* Botones personalizados */
+  /* ================================
+     BOTONES - TEMA ASOCABRA
+     ================================ */
   .btn-primary {
-    @apply bg-pastoral-600 hover:bg-pastoral-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pastoral-500 focus:ring-offset-2;
+    @apply bg-golden-600 hover:bg-golden-700 text-white px-6 py-3 rounded-xl font-semibold 
+           transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-golden-500 
+           focus:ring-offset-2 shadow-golden hover:shadow-golden-lg transform hover:scale-105
+           dark:shadow-golden dark:hover:shadow-golden-lg;
   }
 
   .btn-secondary {
-    @apply bg-white border-2 border-pastoral-600 text-pastoral-600 hover:bg-pastoral-50 px-6 py-3 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pastoral-500 focus:ring-offset-2;
+    @apply bg-transparent border-2 border-golden-600 text-golden-600 hover:bg-golden-50 
+           px-6 py-3 rounded-xl font-semibold transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-golden-500 focus:ring-offset-2
+           dark:hover:bg-golden-900/20 dark:border-golden-500 dark:text-golden-400;
   }
 
-  /* Cards */
+  .btn-outline {
+    @apply bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white 
+           hover:bg-white hover:text-golden-800 px-6 py-3 rounded-xl font-semibold 
+           transition-all duration-300;
+  }
+
+  /* ================================
+     CARDS - TEMA ASOCABRA
+     ================================ */
   .card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+    @apply bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 
+           overflow-hidden border border-border/50 hover:border-golden-200
+           dark:hover:border-golden-700;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-golden-50 to-bronze-50 
+           dark:from-golden-900/20 dark:to-bronze-900/20;
   }
 
   .card-content {
     @apply p-6 lg:p-8;
   }
 
-  /* Navigation */
+  /* ================================
+     NAVEGACIÓN - TEMA ASOCABRA
+     ================================ */
   .nav-link {
-    @apply text-gray-700 hover:text-pastoral-600 font-medium transition-colors duration-200 relative;
+    @apply text-foreground/80 hover:text-golden-600 font-medium transition-all duration-300 
+           relative px-3 py-2 rounded-lg hover:bg-golden-50/50
+           dark:hover:bg-golden-900/20 dark:hover:text-golden-400;
   }
 
   .nav-link:hover::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-pastoral-600 transform scale-x-100 transition-transform duration-200;
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-golden-600 transform scale-x-100 
+           transition-transform duration-300 dark:bg-golden-400;
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-pastoral-600 transform scale-x-0 transition-transform duration-200;
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-golden-600 transform scale-x-0 
+           transition-transform duration-300;
   }
 
   .nav-link-active {
-    @apply text-pastoral-600 font-semibold;
+    @apply text-golden-600 font-semibold bg-golden-50/50 
+           dark:text-golden-400 dark:bg-golden-900/20;
   }
 
-  /* Utilidades para texto */
+  /* ================================
+     UTILIDADES DE TEXTO
+     ================================ */
+  .text-gradient {
+    @apply bg-gradient-to-r from-golden-600 to-bronze-600 bg-clip-text text-transparent;
+  }
+
   .line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;
@@ -153,53 +191,66 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Gradients personalizados */
+  /* ================================
+     GRADIENTES PERSONALIZADOS
+     ================================ */
   .gradient-hero {
-    @apply bg-gradient-to-br from-pastoral-600 via-pastoral-700 to-pastoral-800;
+    @apply bg-gradient-to-br from-golden-600 via-golden-700 to-bronze-700;
+  }
+
+  .gradient-hero-dark {
+    @apply bg-gradient-to-br from-golden-800 via-golden-900 to-bronze-900;
   }
 
   .gradient-overlay {
-    @apply bg-gradient-to-t from-black/60 via-black/20 to-transparent;
+    @apply bg-gradient-to-t from-black/70 via-black/40 to-transparent;
   }
 
-  /* Scrollbar personalizada */
+  .gradient-section {
+    @apply bg-gradient-to-b from-golden-50/30 to-transparent 
+           dark:from-golden-900/10 dark:to-transparent;
+  }
+
+  /* ================================
+     SCROLLBAR PERSONALIZADA
+     ================================ */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-gray-100 rounded-lg;
+    @apply bg-muted rounded-lg;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-pastoral-300 rounded-lg hover:bg-pastoral-400;
+    @apply bg-golden-300 rounded-lg hover:bg-golden-400 
+           dark:bg-golden-700 dark:hover:bg-golden-600;
   }
 
-  /* Animaciones de entrada */
+  /* ================================
+     ANIMACIONES MEJORADAS
+     ================================ */
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
+    animation: slideUp 0.8s ease-out forwards;
   }
 
   .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out forwards;
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    @apply animate-float;
+  }
+
+  .animate-glow {
+    @apply animate-pulse-glow;
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideUp {
     from {
       opacity: 0;
       transform: translateY(30px);
@@ -210,10 +261,21 @@
     }
   }
 
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @keyframes slideInLeft {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-40px);
     }
     to {
       opacity: 1;
@@ -221,22 +283,49 @@
     }
   }
 
-  /* Efectos de hover para imágenes */
+  /* ================================
+     EFECTOS DE HOVER MEJORADOS
+     ================================ */
   .image-hover {
-    @apply transition-transform duration-300 hover:scale-105;
+    @apply transition-all duration-500 hover:scale-110 hover:rotate-2;
   }
 
-  /* Sombras personalizadas */
-  .shadow-soft {
-    box-shadow: 0 4px 20px rgba(52, 159, 90, 0.1);
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl 
+           hover:shadow-golden-600/20;
+  }
+
+  /* ================================
+     SOMBRAS PERSONALIZADAS
+     ================================ */
+  .shadow-golden-soft {
+    box-shadow: 0 4px 20px rgba(255, 158, 26, 0.15);
   }
 
   .shadow-glow {
-    box-shadow: 0 0 30px rgba(52, 159, 90, 0.3);
+    @apply shadow-2xl shadow-golden-600/30;
+  }
+
+  /* ================================
+     ELEMENTOS DECORATIVOS
+     ================================ */
+  .divider-golden {
+    @apply w-20 h-1 bg-gradient-to-r from-golden-600 to-bronze-600 rounded-full mx-auto;
+  }
+
+  .icon-golden {
+    @apply text-golden-600 dark:text-golden-400;
+  }
+
+  .badge-golden {
+    @apply bg-golden-100 text-golden-800 px-3 py-1 rounded-full text-sm font-semibold
+           dark:bg-golden-900/30 dark:text-golden-300;
   }
 }
 
-/* Responsive typography */
+/* ================================
+   TIPOGRAFÍA RESPONSIVA
+   ================================ */
 @layer utilities {
   .text-responsive-xs {
     @apply text-xs sm:text-sm;
@@ -267,18 +356,22 @@
   }
 }
 
-/* Focus styles para accesibilidad */
+/* ================================
+   ESTILOS DE ACCESIBILIDAD
+   ================================ */
 @layer base {
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    @apply outline-none ring-2 ring-pastoral-500 ring-offset-2;
+    @apply outline-none ring-2 ring-golden-500 ring-offset-2 ring-offset-background;
   }
 }
 
-/* Print styles */
+/* ================================
+   ESTILOS PARA IMPRESIÓN
+   ================================ */
 @media print {
   .no-print {
     display: none !important;
@@ -288,4 +381,23 @@
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
+}
+
+/* ================================
+   MODO OSCURO - TRANSICIONES
+   ================================ */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* ================================
+   ELEMENTOS ESPECÍFICOS DEL TEMA
+   ================================ */
+.hero-pattern {
+  background-image: radial-gradient(circle at 25% 25%, rgba(255, 158, 26, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(217, 149, 80, 0.2) 0%, transparent 50%);
+}
+
+.section-pattern {
+  background-image: linear-gradient(45deg, rgba(255, 158, 26, 0.05) 0%, transparent 100%);
 }

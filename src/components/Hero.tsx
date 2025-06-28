@@ -4,18 +4,17 @@ import { ArrowRight, Users, Award, Leaf } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center">
+    <section id="inicio" className="relative min-h-screen flex items-center hero-pattern">
       {/* Imagen de fondo con overlay */}
       <div className="absolute inset-0 z-0">
-        {/* TODO: Reemplazar con imagen real de ovejas en campo */}
-        <div className="w-full h-full bg-gradient-to-r from-pastoral-800 to-pastoral-600">
+        <div className="w-full h-full gradient-hero dark:gradient-hero-dark">
           <img 
-            src={`https://images.unsplash.com/photo-1452378174528-3090a4bba7b2?auto=format&fit=crop&w=1920&q=80`}
-            alt="Rebaño de ovejas en campo verde" 
-            className="w-full h-full object-cover opacity-30"
+            src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?auto=format&fit=crop&w=1920&q=80"
+            alt="Ganado caprino en campo venezolano" 
+            className="w-full h-full object-cover opacity-20 dark:opacity-10"
           />
         </div>
-        <div className="absolute inset-0 bg-pastoral-900 bg-opacity-60"></div>
+        <div className="absolute inset-0 gradient-overlay"></div>
       </div>
 
       {/* Contenido */}
@@ -23,78 +22,86 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Texto Principal */}
           <div className="text-white animate-fade-in">
+            <div className="mb-6">
+              <span className="inline-block bg-white/20 backdrop-blur-sm text-golden-100 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                Desde 2012 🇻🇪
+              </span>
+            </div>
+            
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Impulsando la 
-              <span className="text-pastoral-200"> Ganadería Ovina</span>
+              Fortaleciendo la
+              <span className="block text-golden-200 animate-glow"> Caprinocultura</span>
+              <span className="block">Venezolana</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 text-pastoral-100 leading-relaxed">
-              Más de 30 años promoviendo la excelencia en la crianza de ovinos, 
-              conectando ganaderos y fomentando prácticas sostenibles.
+            
+            <p className="text-xl lg:text-2xl mb-8 text-white/90 leading-relaxed">
+              Promovemos el desarrollo sostenible de la ganadería caprina en Venezuela, 
+              conectando productores y fomentando la excelencia técnica.
             </p>
             
             {/* Botones de Acción */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="bg-pastoral-500 hover:bg-pastoral-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200 flex items-center justify-center group">
-                Únete a la Asociación
+              <button className="bg-golden-600 hover:bg-golden-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center group shadow-golden-lg hover:shadow-2xl transform hover:scale-105">
+                Únete a ASOCABRA
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </button>
-              <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-pastoral-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+              <button className="btn-outline">
                 Conoce Más
               </button>
             </div>
 
             {/* Estadísticas */}
             <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-pastoral-200">500+</div>
-                <div className="text-sm text-pastoral-100">Socios Activos</div>
+              <div className="text-center group">
+                <div className="text-3xl font-bold text-golden-200 group-hover:text-golden-100 transition-colors">200+</div>
+                <div className="text-sm text-white/80">Socios Activos</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-pastoral-200">30</div>
-                <div className="text-sm text-pastoral-100">Años de Experiencia</div>
+              <div className="text-center group">
+                <div className="text-3xl font-bold text-golden-200 group-hover:text-golden-100 transition-colors">12</div>
+                <div className="text-sm text-white/80">Años de Trayectoria</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-pastoral-200">15K+</div>
-                <div className="text-sm text-pastoral-100">Cabezas de Ganado</div>
+              <div className="text-center group">
+                <div className="text-3xl font-bold text-golden-200 group-hover:text-golden-100 transition-colors">5K+</div>
+                <div className="text-sm text-white/80">Cabezas de Ganado</div>
               </div>
             </div>
           </div>
 
           {/* Tarjetas de Características */}
           <div className="space-y-6 animate-slide-in-left">
-            <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-golden-lg transition-all duration-300 card-hover">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-pastoral-600 rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-golden-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <Users className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">Comunidad Unida</h3>
               </div>
               <p className="text-gray-700">
-                Una red de ganaderos comprometidos con el desarrollo del sector ovino.
+                Una red sólida de productores caprinos comprometidos con el crecimiento del sector.
               </p>
             </div>
 
-            <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-golden-lg transition-all duration-300 card-hover">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-pastoral-600 rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-golden-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <Award className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">Excelencia Ganadera</h3>
               </div>
               <p className="text-gray-700">
-                Promovemos las mejores prácticas y estándares de calidad en la crianza.
+                Promovemos las mejores prácticas y estándares de calidad en la crianza caprina.
               </p>
             </div>
 
-            <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-golden-lg transition-all duration-300 card-hover">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-pastoral-600 rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-golden-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <Leaf className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">Sostenibilidad</h3>
               </div>
               <p className="text-gray-700">
-                Comprometidos con prácticas ambientalmente responsables.
+                Comprometidos con prácticas ambientalmente responsables y sostenibles.
               </p>
             </div>
           </div>
@@ -103,8 +110,8 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm">
+          <div className="w-1 h-3 bg-golden-300 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
