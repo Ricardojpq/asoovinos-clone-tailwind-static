@@ -4,97 +4,44 @@
 @tailwind utilities;
 
 /* ================================
-   TEMA ASOCABRA - SISTEMA DE DISEÑO
-   ================================
-   
-   Inspirado en el logo ASOCABRA:
-   - Dorado principal: #ff9e1a (golden-600)
-   - Bronce/Cobre: #d99550 (bronze-500) 
-   - Tierra: #a6977d (earth-500)
-   - Negro del logo para textos
-   
-   Paleta de colores:
-   - Golden: Tonos dorados del logo (principal)
-   - Bronze: Tonos bronce/cobre (secundario)
-   - Earth: Tonos tierra/marrón (neutro)
-*/
+   TEMA ASOCABRA - SISTEMA DE DISEÑO SIMPLIFICADO
+   ================================ */
 
 @layer base {
   :root {
     /* Tema Claro */
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
     --primary: 32 94% 55%; /* golden-600 */
     --primary-foreground: 0 0% 98%;
     --secondary: 30 40% 70%; /* bronze-400 */
-    --secondary-foreground: 20 14.3% 4.1%;
     --muted: 30 33% 90%;
     --muted-foreground: 25 5.3% 44.7%;
-    --accent: 32 100% 84%; /* golden-200 */
-    --accent-foreground: 20 14.3% 4.1%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
     --border: 30 20% 88%;
-    --input: 30 20% 88%;
     --ring: 32 94% 55%;
-    --radius: 0.75rem;
-    
-    /* Sidebar colors */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     /* Tema Oscuro */
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
-    --card: 24 9.8% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 24 9.8% 8%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 32 94% 55%; /* golden-600 - mantiene el dorado */
+    --primary: 32 94% 55%;
     --primary-foreground: 0 0% 9%;
-    --secondary: 30 20% 20%; /* bronze oscuro */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 30 20% 20%;
     --muted: 25 9.8% 15%;
     --muted-foreground: 25 5.3% 60%;
-    --accent: 32 84% 20%; /* golden oscuro */
-    --accent-foreground: 0 0% 95%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 95%;
     --border: 25 9.8% 15%;
-    --input: 25 9.8% 15%;
     --ring: 32 94% 55%;
-    
-    /* Sidebar colors dark */
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 32 94% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground font-body transition-colors duration-300;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: background-color 300ms, color 300ms;
   }
 
   html {
@@ -102,302 +49,296 @@
   }
 }
 
-@layer components {
-  /* ================================
-     BOTONES - TEMA ASOCABRA
-     ================================ */
-  .btn-primary {
-    @apply bg-golden-600 hover:bg-golden-700 text-white px-6 py-3 rounded-xl font-semibold 
-           transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-golden-500 
-           focus:ring-offset-2 shadow-golden hover:shadow-golden-lg transform hover:scale-105
-           dark:shadow-golden dark:hover:shadow-golden-lg;
-  }
+/* ================================
+   COLORES PERSONALIZADOS ASOCABRA
+   ================================ */
+.bg-golden-50 { background-color: #fffbeb; }
+.bg-golden-100 { background-color: #fef3c7; }
+.bg-golden-200 { background-color: #fde68a; }
+.bg-golden-600 { background-color: #ff9e1a; }
+.bg-golden-700 { background-color: #d97706; }
+.bg-golden-800 { background-color: #b45309; }
+.bg-golden-900 { background-color: #92400e; }
 
-  .btn-secondary {
-    @apply bg-transparent border-2 border-golden-600 text-golden-600 hover:bg-golden-50 
-           px-6 py-3 rounded-xl font-semibold transition-all duration-300 
-           focus:outline-none focus:ring-2 focus:ring-golden-500 focus:ring-offset-2
-           dark:hover:bg-golden-900/20 dark:border-golden-500 dark:text-golden-400;
-  }
+.text-golden-100 { color: #fef3c7; }
+.text-golden-200 { color: #fde68a; }
+.text-golden-300 { color: #fcd34d; }
+.text-golden-400 { color: #fbbf24; }
+.text-golden-600 { color: #ff9e1a; }
+.text-golden-700 { color: #d97706; }
+.text-golden-800 { color: #b45309; }
 
-  .btn-outline {
-    @apply bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white 
-           hover:bg-white hover:text-golden-800 px-6 py-3 rounded-xl font-semibold 
-           transition-all duration-300;
-  }
+.border-golden-200 { border-color: #fde68a; }
+.border-golden-500 { border-color: #f59e0b; }
+.border-golden-600 { border-color: #ff9e1a; }
+.border-golden-700 { border-color: #d97706; }
 
-  /* ================================
-     CARDS - TEMA ASOCABRA
-     ================================ */
-  .card {
-    @apply bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 
-           overflow-hidden border border-border/50 hover:border-golden-200
-           dark:hover:border-golden-700;
-  }
+.bg-bronze-50 { background-color: #fdfcfb; }
+.bg-bronze-100 { background-color: #f7f4f1; }
+.bg-bronze-600 { background-color: #d99550; }
+.bg-bronze-700 { background-color: #b8782e; }
+.bg-bronze-900 { background-color: #8b5a1e; }
 
-  .card-gradient {
-    @apply bg-gradient-to-br from-golden-50 to-bronze-50 
-           dark:from-golden-900/20 dark:to-bronze-900/20;
-  }
-
-  .card-content {
-    @apply p-6 lg:p-8;
-  }
-
-  /* ================================
-     NAVEGACIÓN - TEMA ASOCABRA
-     ================================ */
-  .nav-link {
-    @apply text-foreground/80 hover:text-golden-600 font-medium transition-all duration-300 
-           relative px-3 py-2 rounded-lg hover:bg-golden-50/50
-           dark:hover:bg-golden-900/20 dark:hover:text-golden-400;
-  }
-
-  .nav-link:hover::after {
-    content: '';
-    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-golden-600 transform scale-x-100 
-           transition-transform duration-300 dark:bg-golden-400;
-  }
-
-  .nav-link::after {
-    content: '';
-    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-golden-600 transform scale-x-0 
-           transition-transform duration-300;
-  }
-
-  .nav-link-active {
-    @apply text-golden-600 font-semibold bg-golden-50/50 
-           dark:text-golden-400 dark:bg-golden-900/20;
-  }
-
-  /* ================================
-     UTILIDADES DE TEXTO
-     ================================ */
-  .text-gradient {
-    @apply bg-gradient-to-r from-golden-600 to-bronze-600 bg-clip-text text-transparent;
-  }
-
-  .line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .line-clamp-3 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-  }
-
-  /* ================================
-     GRADIENTES PERSONALIZADOS
-     ================================ */
-  .gradient-hero {
-    @apply bg-gradient-to-br from-golden-600 via-golden-700 to-bronze-700;
-  }
-
-  .gradient-hero-dark {
-    @apply bg-gradient-to-br from-golden-800 via-golden-900 to-bronze-900;
-  }
-
-  .gradient-overlay {
-    @apply bg-gradient-to-t from-black/70 via-black/40 to-transparent;
-  }
-
-  .gradient-section {
-    @apply bg-gradient-to-b from-golden-50/30 to-transparent 
-           dark:from-golden-900/10 dark:to-transparent;
-  }
-
-  /* ================================
-     SCROLLBAR PERSONALIZADA
-     ================================ */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-muted rounded-lg;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-golden-300 rounded-lg hover:bg-golden-400 
-           dark:bg-golden-700 dark:hover:bg-golden-600;
-  }
-
-  /* ================================
-     ANIMACIONES MEJORADAS
-     ================================ */
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.8s ease-out forwards;
-  }
-
-  .animate-float {
-    @apply animate-float;
-  }
-
-  .animate-glow {
-    @apply animate-pulse-glow;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  /* ================================
-     EFECTOS DE HOVER MEJORADOS
-     ================================ */
-  .image-hover {
-    @apply transition-all duration-500 hover:scale-110 hover:rotate-2;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl 
-           hover:shadow-golden-600/20;
-  }
-
-  /* ================================
-     SOMBRAS PERSONALIZADAS
-     ================================ */
-  .shadow-golden-soft {
-    box-shadow: 0 4px 20px rgba(255, 158, 26, 0.15);
-  }
-
-  .shadow-glow {
-    @apply shadow-2xl shadow-golden-600/30;
-  }
-
-  /* ================================
-     ELEMENTOS DECORATIVOS
-     ================================ */
-  .divider-golden {
-    @apply w-20 h-1 bg-gradient-to-r from-golden-600 to-bronze-600 rounded-full mx-auto;
-  }
-
-  .icon-golden {
-    @apply text-golden-600 dark:text-golden-400;
-  }
-
-  .badge-golden {
-    @apply bg-golden-100 text-golden-800 px-3 py-1 rounded-full text-sm font-semibold
-           dark:bg-golden-900/30 dark:text-golden-300;
-  }
-}
+.bg-earth-50 { background-color: #faf9f7; }
 
 /* ================================
-   TIPOGRAFÍA RESPONSIVA
+   DARK MODE OVERRIDES
    ================================ */
-@layer utilities {
-  .text-responsive-xs {
-    @apply text-xs sm:text-sm;
-  }
-
-  .text-responsive-sm {
-    @apply text-sm sm:text-base;
-  }
-
-  .text-responsive-base {
-    @apply text-base sm:text-lg;
-  }
-
-  .text-responsive-lg {
-    @apply text-lg sm:text-xl;
-  }
-
-  .text-responsive-xl {
-    @apply text-xl sm:text-2xl;
-  }
-
-  .text-responsive-2xl {
-    @apply text-2xl sm:text-3xl;
-  }
-
-  .text-responsive-3xl {
-    @apply text-3xl sm:text-4xl lg:text-5xl;
-  }
-}
+.dark .bg-golden-50 { background-color: rgba(255, 158, 26, 0.1); }
+.dark .bg-golden-100 { background-color: rgba(255, 158, 26, 0.2); }
+.dark .bg-golden-900 { background-color: rgba(255, 158, 26, 0.05); }
+.dark .text-golden-400 { color: #fbbf24; }
+.dark .border-golden-700 { border-color: rgba(255, 158, 26, 0.3); }
 
 /* ================================
-   ESTILOS DE ACCESIBILIDAD
+   COMPONENTES REUTILIZABLES
    ================================ */
-@layer base {
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
-    @apply outline-none ring-2 ring-golden-500 ring-offset-2 ring-offset-background;
-  }
+
+/* Botones */
+.btn-primary {
+  background-color: #ff9e1a;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 300ms;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* ================================
-   ESTILOS PARA IMPRESIÓN
-   ================================ */
-@media print {
-  .no-print {
-    display: none !important;
-  }
-  
-  body {
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
-  }
+.btn-primary:hover {
+  background-color: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* ================================
-   MODO OSCURO - TRANSICIONES
-   ================================ */
-* {
-  @apply transition-colors duration-300;
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #ff9e1a;
+  color: #ff9e1a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 300ms;
 }
 
-/* ================================
-   ELEMENTOS ESPECÍFICOS DEL TEMA
-   ================================ */
+.btn-secondary:hover {
+  background-color: #fffbeb;
+  transform: translateY(-1px);
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgba(255, 158, 26, 0.1);
+}
+
+.btn-outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 300ms;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: #b45309;
+}
+
+/* Cards */
+.card-base {
+  background-color: hsl(var(--background));
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 300ms;
+  overflow: hidden;
+  border: 1px solid rgba(255, 158, 26, 0.1);
+}
+
+.card-base:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: rgba(255, 158, 26, 0.2);
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.dark .card-gradient {
+  background: linear-gradient(135deg, rgba(255, 158, 26, 0.1) 0%, rgba(255, 158, 26, 0.05) 100%);
+}
+
+/* Navegación */
+.nav-link {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  transition: all 300ms;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.nav-link:hover {
+  color: #ff9e1a;
+  background-color: rgba(255, 158, 26, 0.05);
+}
+
+.dark .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .nav-link:hover {
+  color: #fbbf24;
+  background-color: rgba(255, 158, 26, 0.1);
+}
+
+/* Gradientes */
+.gradient-hero {
+  background: linear-gradient(135deg, #ff9e1a 0%, #d97706 50%, #d99550 100%);
+}
+
+.gradient-hero-dark {
+  background: linear-gradient(135deg, #b45309 0%, #92400e 50%, #8b5a1e 100%);
+}
+
+.gradient-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+}
+
+.gradient-section {
+  background: linear-gradient(to bottom, rgba(255, 158, 26, 0.03) 0%, transparent 100%);
+}
+
+.dark .gradient-section {
+  background: linear-gradient(to bottom, rgba(255, 158, 26, 0.05) 0%, transparent 100%);
+}
+
+/* Utilidades */
+.text-gradient {
+  background: linear-gradient(135deg, #ff9e1a 0%, #d99550 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.divider-golden {
+  width: 5rem;
+  height: 0.25rem;
+  background: linear-gradient(135deg, #ff9e1a 0%, #d99550 100%);
+  border-radius: 0.125rem;
+  margin: 0 auto;
+}
+
+.icon-golden {
+  color: #ff9e1a;
+}
+
+.dark .icon-golden {
+  color: #fbbf24;
+}
+
+.badge-golden {
+  background-color: #fef3c7;
+  color: #b45309;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.dark .badge-golden {
+  background-color: rgba(255, 158, 26, 0.2);
+  color: #fbbf24;
+}
+
+/* Patrones decorativos */
 .hero-pattern {
-  background-image: radial-gradient(circle at 25% 25%, rgba(255, 158, 26, 0.2) 0%, transparent 50%),
-                    radial-gradient(circle at 75% 75%, rgba(217, 149, 80, 0.2) 0%, transparent 50%);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 158, 26, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(217, 149, 80, 0.2) 0%, transparent 50%);
 }
 
 .section-pattern {
   background-image: linear-gradient(45deg, rgba(255, 158, 26, 0.05) 0%, transparent 100%);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* Responsive Typography */
+.text-responsive-sm { font-size: 0.875rem; }
+.text-responsive-base { font-size: 1rem; }
+.text-responsive-lg { font-size: 1.125rem; }
+.text-responsive-xl { font-size: 1.25rem; }
+.text-responsive-2xl { font-size: 1.5rem; }
+.text-responsive-3xl { font-size: 1.875rem; }
+
+@media (min-width: 640px) {
+  .text-responsive-sm { font-size: 1rem; }
+  .text-responsive-base { font-size: 1.125rem; }
+  .text-responsive-lg { font-size: 1.25rem; }
+  .text-responsive-xl { font-size: 1.5rem; }
+  .text-responsive-2xl { font-size: 1.875rem; }
+  .text-responsive-3xl { font-size: 2.25rem; }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-3xl { font-size: 3rem; }
+}
+
+/* Transiciones globales */
+* {
+  transition: color 300ms, background-color 300ms, border-color 300ms;
+}
+
+/* Utilidades adicionales */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Focus states para accesibilidad */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #ff9e1a;
+  outline-offset: 2px;
 }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Stethoscope, GraduationCap, BarChart3, Handshake, Leaf, FileText, ArrowRight } from 'lucide-react';
 
@@ -42,15 +43,15 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="servicios" className="py-16 lg:py-24 bg-background section-pattern">
+    <section id="servicios" className="py-16 lg:py-24 bg-white dark:bg-gray-900 section-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Nuestros Servicios
           </h2>
           <div className="divider-golden mb-6"></div>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Ofrecemos un amplio rango de servicios especializados para apoyar a nuestros socios 
             en todas las etapas de su actividad ganadera caprina.
           </p>
@@ -59,34 +60,32 @@ const ServicesSection = () => {
         {/* Grid de Servicios */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="card card-gradient group hover:scale-105 transition-all duration-300 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="card-content">
-                <div className="w-16 h-16 bg-golden-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-golden-600 transition-all duration-300 shadow-lg group-hover:shadow-golden-lg dark:bg-golden-900/30 dark:group-hover:bg-golden-600">
-                  <service.icon className="text-golden-600 group-hover:text-white transition-colors duration-300 dark:text-golden-400 dark:group-hover:text-white" size={32} />
-                </div>
-                
-                <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-golden-700 dark:group-hover:text-golden-300 transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                <ul className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-2 h-2 bg-golden-600 rounded-full mr-3 flex-shrink-0 dark:bg-golden-400"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <button className="mt-6 text-golden-600 font-semibold hover:text-golden-700 transition-colors duration-200 flex items-center group-hover:translate-x-1 dark:text-golden-400 dark:hover:text-golden-300">
-                  Conocer más 
-                  <ArrowRight size={16} className="ml-1" />
-                </button>
+            <div key={index} className="card-base card-gradient group hover:scale-105 transition-all duration-300 animate-slide-up p-6 lg:p-8" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="w-16 h-16 bg-golden-100 dark:bg-golden-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-golden-600 transition-all duration-300 shadow-lg">
+                <service.icon className="text-golden-600 dark:text-golden-400 group-hover:text-white transition-colors duration-300" size={32} />
               </div>
+              
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-golden-700 dark:group-hover:text-golden-300 transition-colors">
+                {service.title}
+              </h3>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                {service.description}
+              </p>
+
+              <ul className="space-y-3 mb-6">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                    <div className="w-2 h-2 bg-golden-600 dark:bg-golden-400 rounded-full mr-3 flex-shrink-0"></div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <button className="text-golden-600 dark:text-golden-400 font-semibold hover:text-golden-700 dark:hover:text-golden-300 transition-colors duration-200 flex items-center group-hover:translate-x-1">
+                Conocer más 
+                <ArrowRight size={16} className="ml-1" />
+              </button>
             </div>
           ))}
         </div>

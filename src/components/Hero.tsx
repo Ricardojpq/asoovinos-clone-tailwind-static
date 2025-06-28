@@ -30,7 +30,7 @@ const Hero = () => {
             
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Fortaleciendo la
-              <span className="block text-golden-200 animate-glow"> Caprinocultura</span>
+              <span className="block text-golden-200"> Caprinocultura</span>
               <span className="block">Venezolana</span>
             </h1>
             
@@ -41,7 +41,7 @@ const Hero = () => {
             
             {/* Botones de Acción */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="bg-golden-600 hover:bg-golden-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center group shadow-golden-lg hover:shadow-2xl transform hover:scale-105">
+              <button className="btn-primary flex items-center justify-center group">
                 Únete a ASOCABRA
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </button>
@@ -69,7 +69,7 @@ const Hero = () => {
 
           {/* Tarjetas de Características */}
           <div className="space-y-6 animate-slide-in-left">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-golden-lg transition-all duration-300 card-hover">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-lg transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-golden-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <Users className="text-white" size={24} />
@@ -81,7 +81,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-golden-lg transition-all duration-300 card-hover">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-lg transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-golden-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <Award className="text-white" size={24} />
@@ -93,7 +93,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-golden-lg transition-all duration-300 card-hover">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-lg transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-golden-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                   <Leaf className="text-white" size={24} />

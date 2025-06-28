@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+// SHADCN UI USADO AQUÍ: Dialog, Input, Label, Select, Button
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -45,14 +45,11 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Aquí se integraría con la API para enviar la consulta
     console.log('Datos de consulta:', formData);
     
-    // Simular envío exitoso
     alert('Consulta enviada exitosamente. Te contactaremos pronto.');
     onClose();
     
-    // Limpiar formulario
     setFormData({
       tattoo: '',
       breed: '',
@@ -67,17 +64,16 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[500px] bg-background border-golden-200/20 dark:border-golden-700/20">
+      <DialogContent className="sm:max-w-[500px] bg-white dark:bg-gray-900 border-golden-200/20 dark:border-golden-700/20">
         <DialogHeader className="pb-6">
-          <DialogTitle className="text-2xl font-bold text-foreground text-center">
+          <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white text-center">
             Consulta
           </DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Campo Tatuaje */}
           <div className="space-y-2">
-            <Label htmlFor="tattoo" className="text-sm font-medium text-foreground">
+            <Label htmlFor="tattoo" className="text-sm font-medium text-gray-900 dark:text-white">
               Tatuaje
             </Label>
             <Input
@@ -91,16 +87,15 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
             />
           </div>
 
-          {/* Campo Seleccionar Raza */}
           <div className="space-y-2">
-            <Label htmlFor="breed" className="text-sm font-medium text-foreground">
+            <Label htmlFor="breed" className="text-sm font-medium text-gray-900 dark:text-white">
               Seleccione una raza
             </Label>
             <Select value={formData.breed} onValueChange={(value) => handleInputChange('breed', value)}>
               <SelectTrigger className="w-full border-golden-200/50 focus:border-golden-500 focus:ring-golden-500 dark:border-golden-700/50 dark:focus:border-golden-400">
                 <SelectValue placeholder="Seleccione una raza" />
               </SelectTrigger>
-              <SelectContent className="bg-background border-golden-200/20 dark:border-golden-700/20">
+              <SelectContent className="bg-white dark:bg-gray-900 border-golden-200/20 dark:border-golden-700/20">
                 {breeds.map((breed) => (
                   <SelectItem key={breed} value={breed} className="hover:bg-golden-50 dark:hover:bg-golden-900/20">
                     {breed}
@@ -110,16 +105,15 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
             </Select>
           </div>
 
-          {/* Campo Seleccionar Sexo */}
           <div className="space-y-2">
-            <Label htmlFor="sex" className="text-sm font-medium text-foreground">
+            <Label htmlFor="sex" className="text-sm font-medium text-gray-900 dark:text-white">
               Seleccione el sexo
             </Label>
             <Select value={formData.sex} onValueChange={(value) => handleInputChange('sex', value)}>
               <SelectTrigger className="w-full border-golden-200/50 focus:border-golden-500 focus:ring-golden-500 dark:border-golden-700/50 dark:focus:border-golden-400">
                 <SelectValue placeholder="Seleccione el sexo" />
               </SelectTrigger>
-              <SelectContent className="bg-background border-golden-200/20 dark:border-golden-700/20">
+              <SelectContent className="bg-white dark:bg-gray-900 border-golden-200/20 dark:border-golden-700/20">
                 {sexOptions.map((sex) => (
                   <SelectItem key={sex} value={sex} className="hover:bg-golden-50 dark:hover:bg-golden-900/20">
                     {sex}
@@ -129,9 +123,8 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
             </Select>
           </div>
 
-          {/* Campo Número de Registro */}
           <div className="space-y-2">
-            <Label htmlFor="registrationNumber" className="text-sm font-medium text-foreground">
+            <Label htmlFor="registrationNumber" className="text-sm font-medium text-gray-900 dark:text-white">
               Número de Registro
             </Label>
             <Input
@@ -145,7 +138,6 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
             />
           </div>
 
-          {/* Botones */}
           <div className="flex gap-3 pt-4">
             <Button
               type="button"

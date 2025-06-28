@@ -34,7 +34,7 @@ const Header = () => {
       </div>
 
       {/* Header Principal */}
-      <header className="bg-background/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-golden-200/20 dark:border-golden-700/20">
+      <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-golden-200/20 dark:bg-gray-900/95 dark:border-golden-700/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
@@ -47,8 +47,8 @@ const Header = () => {
                 />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">ASOCABRA</h1>
-                <p className="text-sm text-muted-foreground">Venezuela</p>
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white">ASOCABRA</h1>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Venezuela</p>
               </div>
             </div>
 
@@ -73,7 +73,7 @@ const Header = () => {
             <div className="lg:hidden flex items-center space-x-2">
               <ThemeToggle />
               <button
-                className="p-2 rounded-md text-foreground hover:text-golden-600 hover:bg-golden-50/50 dark:hover:bg-golden-900/20"
+                className="p-2 rounded-md text-gray-900 hover:text-golden-600 hover:bg-golden-50/50 dark:text-white dark:hover:bg-golden-900/20"
                 onClick={toggleMenu}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,7 +84,7 @@ const Header = () => {
 
         {/* Menu Mobile */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-background/95 backdrop-blur-sm border-t border-golden-200/20 dark:border-golden-700/20">
+          <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-golden-200/20 dark:bg-gray-900/95 dark:border-golden-700/20">
             <div className="px-4 py-2 space-y-1">
               <a href="#inicio" className="block px-3 py-2 nav-link">Inicio</a>
               <a href="#nosotros" className="block px-3 py-2 nav-link">Nosotros</a>

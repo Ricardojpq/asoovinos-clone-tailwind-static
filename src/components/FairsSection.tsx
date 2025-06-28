@@ -37,14 +37,14 @@ const FairsSection = () => {
   ];
 
   return (
-    <section id="ferias" className="py-20 bg-gradient-section">
+    <section id="ferias" className="py-20 gradient-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Ferias y Eventos
           </h2>
           <div className="divider-golden mb-6"></div>
-          <p className="text-responsive-base text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-responsive-base text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Conoce las próximas ferias y eventos donde podrás encontrar los mejores ejemplares caprinos de Venezuela
           </p>
         </div>
@@ -53,14 +53,14 @@ const FairsSection = () => {
           {fairs.map((fair, index) => (
             <div 
               key={fair.id}
-              className="card card-hover animate-slide-up"
+              className="card-base card-gradient hover:scale-105 animate-slide-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={fair.image} 
                   alt={fair.name}
-                  className="w-full h-full object-cover image-hover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
                 <div className="absolute inset-0 gradient-overlay"></div>
                 <div className="absolute top-4 right-4">
@@ -70,32 +70,32 @@ const FairsSection = () => {
                 </div>
               </div>
               
-              <div className="card-content">
-                <h3 className="text-xl font-bold text-foreground mb-3">
+              <div className="p-6 lg:p-8">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {fair.name}
                 </h3>
                 
                 <div className="space-y-2 mb-4">
-                  <div className="flex items-center text-muted-foreground">
+                  <div className="flex items-center text-gray-600 dark:text-gray-400">
                     <Calendar className="w-4 h-4 mr-2 icon-golden" />
                     <span className="text-sm">{fair.date}</span>
                   </div>
-                  <div className="flex items-center text-muted-foreground">
+                  <div className="flex items-center text-gray-600 dark:text-gray-400">
                     <MapPin className="w-4 h-4 mr-2 icon-golden" />
                     <span className="text-sm">{fair.location}</span>
                   </div>
-                  <div className="flex items-center text-muted-foreground">
+                  <div className="flex items-center text-gray-600 dark:text-gray-400">
                     <Users className="w-4 h-4 mr-2 icon-golden" />
                     <span className="text-sm">{fair.participants}</span>
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground mb-6 line-clamp-3">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 line-clamp-3">
                   {fair.description}
                 </p>
 
                 <div className="flex gap-3">
-                  <button className="btn-secondary flex-1 text-sm">
+                  <button className="btn-secondary flex-1 text-sm flex items-center justify-center">
                     <Eye className="w-4 h-4 mr-2" />
                     Ver Detalles
                   </button>
@@ -112,30 +112,29 @@ const FairsSection = () => {
         </div>
 
         {/* Sección de información adicional */}
-        <div className="mt-16 card card-gradient">
-          <div className="card-content text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              ¿Quieres participar en nuestras ferias?
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Como miembro de ASOCABRA, tienes acceso preferencial a todas nuestras ferias y eventos. 
-              Obtén información detallada sobre requisitos, inscripciones y beneficios.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">
-                Información de Inscripción
-              </button>
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="btn-secondary"
-              >
-                Consultar Disponibilidad
-              </button>
-            </div>
+        <div className="mt-16 card-base card-gradient p-8 lg:p-12 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            ¿Quieres participar en nuestras ferias?
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+            Como miembro de ASOCABRA, tienes acceso preferencial a todas nuestras ferias y eventos. 
+            Obtén información detallada sobre requisitos, inscripciones y beneficios.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="btn-primary">
+              Información de Inscripción
+            </button>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="btn-secondary"
+            >
+              Consultar Disponibilidad
+            </button>
           </div>
         </div>
       </div>
 
+      {/* SHADCN UI USADO AQUÍ: Modal Dialog */}
       <ConsultModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
