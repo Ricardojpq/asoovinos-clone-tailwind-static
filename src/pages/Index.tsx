@@ -1,11 +1,12 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
-import NewsSection from '@/components/NewsSection';
-import Footer from '@/components/Footer';
+import FairsSection from '@/components/FairsSection';
 import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         <AboutSection />
         <ServicesSection />
+        <FairsSection />
         <ContactSection />
       </main>
       <Footer />

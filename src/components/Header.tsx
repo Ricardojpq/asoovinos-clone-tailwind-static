@@ -57,6 +57,7 @@ const Header = () => {
               <a href="#inicio" className="nav-link">Inicio</a>
               <a href="#nosotros" className="nav-link">Nosotros</a>
               <a href="#servicios" className="nav-link">Servicios</a>
+              <a href="#ferias" className="nav-link">Ferias</a>
               <a href="#contacto" className="nav-link">Contacto</a>
             </nav>
 
@@ -88,6 +89,7 @@ const Header = () => {
               <a href="#inicio" className="block px-3 py-2 nav-link">Inicio</a>
               <a href="#nosotros" className="block px-3 py-2 nav-link">Nosotros</a>
               <a href="#servicios" className="block px-3 py-2 nav-link">Servicios</a>
+              <a href="#ferias" className="block px-3 py-2 nav-link">Ferias</a>
               <a href="#contacto" className="block px-3 py-2 nav-link">Contacto</a>
               <div className="px-3 py-2">
                 <button className="w-full btn-primary">
