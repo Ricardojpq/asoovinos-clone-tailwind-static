@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Stethoscope, GraduationCap, BarChart3, Handshake, Leaf, FileText } from 'lucide-react';
+import { Stethoscope, GraduationCap, BarChart3, Handshake, Leaf, FileText, ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
