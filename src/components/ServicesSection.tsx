@@ -101,10 +101,10 @@ const ServicesSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-golden-700 hover:bg-golden-50 px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button className="btn btn-info btn-lg">
               Solicitar Consulta
             </button>
-            <button className="btn-outline">
+            <button className="btn btn-secondary">
               Ver Tarifas
             </button>
           </div>

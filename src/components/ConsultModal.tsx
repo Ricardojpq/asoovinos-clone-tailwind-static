@@ -139,6 +139,7 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="flex gap-3 pt-4">
+            {/* SHADCN UI USADO AQUÍ: Button component */}
             <Button
               type="button"
               variant="outline"
@@ -147,12 +148,13 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ isOpen, onClose }) => {
             >
               Cerrar
             </Button>
-            <Button
+            {/* Usando nuestro sistema de botones personalizado */}
+            <button
               type="submit"
-              className="flex-1 btn-primary"
+              className="flex-1 btn btn-primary"
             >
               Consultar
-            </Button>
+            </button>
           </div>
         </form>
       </DialogContent>

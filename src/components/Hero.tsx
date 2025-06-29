@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Users, Award, Leaf } from 'lucide-react';
 
@@ -41,11 +40,11 @@ const Hero = () => {
             
             {/* Botones de Acción */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="btn-primary flex items-center justify-center group">
+              <button className="btn btn-primary btn-lg flex items-center justify-center group">
                 Únete a ASOCABRA
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </button>
-              <button className="btn-outline">
+              <button className="btn btn-secondary btn-lg">
                 Conoce Más
               </button>
             </div>

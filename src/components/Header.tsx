@@ -64,7 +64,7 @@ const Header = () => {
             {/* Controles Desktop */}
             <div className="hidden lg:flex items-center space-x-4">
               <ThemeToggle />
-              <button className="btn-primary">
+              <button className="btn btn-primary">
                 Hazte Socio
               </button>
             </div>
@@ -92,7 +92,7 @@ const Header = () => {
               <a href="#ferias" className="block px-3 py-2 nav-link">Ferias</a>
               <a href="#contacto" className="block px-3 py-2 nav-link">Contacto</a>
               <div className="px-3 py-2">
-                <button className="w-full btn-primary">
+                <button className="w-full btn btn-primary">
                   Hazte Socio
                 </button>
               </div>

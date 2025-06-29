@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
 	darkMode: ["class"],
@@ -158,5 +159,48 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		plugin(function({ addComponents }) {
+			addComponents({
+				// Clase base para botones
+				'.btn': {
+					'@apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold transition-all duration-300 cursor-pointer border-0 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50': {},
+					// Tamaño por defecto (medium)
+					'@apply px-6 py-3 text-base': {},
+				},
+				
+				// Tamaños de botones
+				'.btn-sm': {
+					'@apply px-4 py-2 text-sm': {},
+				},
+				'.btn-lg': {
+					'@apply px-8 py-4 text-lg': {},
+				},
+				
+				// Colores de botones
+				'.btn-primary': {
+					'@apply bg-golden-600 text-white shadow-lg hover:bg-golden-700 hover:shadow-xl hover:-translate-y-0.5 focus:ring-golden-500': {},
+				},
+				'.btn-secondary': {
+					'@apply bg-bronze-600 text-white shadow-lg hover:bg-bronze-700 hover:shadow-xl hover:-translate-y-0.5 focus:ring-bronze-500': {},
+				},
+				'.btn-success': {
+					'@apply bg-green-600 text-white shadow-lg hover:bg-green-700 hover:shadow-xl hover:-translate-y-0.5 focus:ring-green-500': {},
+				},
+				'.btn-warning': {
+					'@apply bg-yellow-500 text-white shadow-lg hover:bg-yellow-600 hover:shadow-xl hover:-translate-y-0.5 focus:ring-yellow-500': {},
+				},
+				'.btn-danger': {
+					'@apply bg-red-600 text-white shadow-lg hover:bg-red-700 hover:shadow-xl hover:-translate-y-0.5 focus:ring-red-500': {},
+				},
+				'.btn-info': {
+					'@apply bg-blue-600 text-white shadow-lg hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5 focus:ring-blue-500': {},
+				},
+				'.btn-muted': {
+					'@apply bg-gray-500 text-white shadow-lg hover:bg-gray-600 hover:shadow-xl hover:-translate-y-0.5 focus:ring-gray-500 dark:bg-gray-600 dark:hover:bg-gray-700': {},
+				},
+			})
+		})
+	],
 } satisfies Config;
