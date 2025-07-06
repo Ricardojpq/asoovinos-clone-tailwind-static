@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
@@ -64,9 +63,9 @@ const Header = () => {
             {/* Controles Desktop */}
             <div className="hidden lg:flex items-center space-x-4">
               <ThemeToggle />
-              <button className="btn btn-primary">
-                Hazte Socio
-              </button>
+              <a href="/login" className="btn btn-primary">
+                Iniciar Sesión
+              </a>
             </div>
 
             {/* Botón Menu Mobile */}
@@ -92,9 +91,9 @@ const Header = () => {
               <a href="#ferias" className="block px-3 py-2 nav-link">Ferias</a>
               <a href="#contacto" className="block px-3 py-2 nav-link">Contacto</a>
               <div className="px-3 py-2">
-                <button className="w-full btn btn-primary">
-                  Hazte Socio
-                </button>
+                <a href="/login" className="w-full btn btn-primary block text-center">
+                  Iniciar Sesión
+                </a>
               </div>
             </div>
           </div>
