@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -365,7 +366,7 @@ select:focus-visible {
 }
 
 .form-textarea {
-  @apply form-input resize-vertical min-h-[100px];
+  @apply form-input resize-y min-h-[100px];
 }
 
 .form-select {
