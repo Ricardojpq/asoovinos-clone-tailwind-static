@@ -1,7 +1,6 @@
-
 import React from 'react';
 import DashboardLayout from '@/components/DashboardLayout';
-import { Certificate, Download, Eye, Plus, Search } from 'lucide-react';
+import { Award, Download, Eye, Plus, Search } from 'lucide-react';
 
 const Certificates = () => {
   const certificates = [
@@ -95,7 +94,7 @@ const Certificates = () => {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-golden-100 dark:bg-golden-900/30 rounded-lg flex items-center justify-center">
-                    <Certificate className="text-golden-600 dark:text-golden-400" size={24} />
+                    <Award className="text-golden-600 dark:text-golden-400" size={24} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -143,7 +142,7 @@ const Certificates = () => {
         {/* Empty State if no certificates */}
         {certificates.length === 0 && (
           <div className="text-center py-12">
-            <Certificate className="mx-auto h-12 w-12 text-gray-400" />
+            <Award className="mx-auto h-12 w-12 text-gray-400" />
             <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">
               No hay certificados
             </h3>

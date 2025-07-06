@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   Menu, 
   X, 
-  Certificate, 
+  Award, 
   Users, 
   PawPrint, 
   User, 
@@ -28,7 +27,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
   const menuItems = [
     { name: 'Dashboard', path: '/dashboard', icon: Home },
-    { name: 'Certificados', path: '/dashboard/certificates', icon: Certificate },
+    { name: 'Certificados', path: '/dashboard/certificates', icon: Award },
     { name: 'Animales', path: '/dashboard/animals', icon: PawPrint },
     { name: 'Socios', path: '/dashboard/members', icon: Users },
   ];

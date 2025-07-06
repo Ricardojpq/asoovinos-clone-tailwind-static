@@ -1,7 +1,7 @@
 
 import React from 'react';
 import DashboardLayout from '@/components/DashboardLayout';
-import { Certificate, Users, PawPrint, TrendingUp, Calendar, Bell } from 'lucide-react';
+import { Award, Users, PawPrint, TrendingUp, Calendar, Bell } from 'lucide-react';
 
 const Dashboard = () => {
   const stats = [
@@ -9,7 +9,7 @@ const Dashboard = () => {
       title: 'Certificados Activos',
       value: '12',
       change: '+2 este mes',
-      icon: Certificate,
+      icon: Award,
       color: 'text-green-600 dark:text-green-400'
     },
     {
@@ -112,7 +112,7 @@ const Dashboard = () => {
               {recentActivities.map((activity, index) => (
                 <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                   <div className="w-10 h-10 bg-golden-100 dark:bg-golden-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                    {activity.type === 'certificate' && <Certificate size={16} className="text-golden-600" />}
+                    {activity.type === 'certificate' && <Award size={16} className="text-golden-600" />}
                     {activity.type === 'animal' && <PawPrint size={16} className="text-golden-600" />}
                     {activity.type === 'member' && <Users size={16} className="text-golden-600" />}
                     {activity.type === 'inspection' && <Calendar size={16} className="text-golden-600" />}
