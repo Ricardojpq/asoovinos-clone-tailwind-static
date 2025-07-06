@@ -110,12 +110,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
               {/* Profile Dropdown */}
               {profileMenuOpen && (
-                <div className="absolute right-0 top-12 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50 animate-fade-in">
+                <div className="absolute right-0 top-12 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50 animate-fade-in">
                   <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
                       {user.name}
                     </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
                       {user.email}
                     </p>
                   </div>
@@ -139,20 +139,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           </div>
         </div>
       </header>
-
-      {/* Toolbar con información de usuario/finca */}
-      <div className="bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20 border-b border-golden-200/30 dark:border-golden-700/30 px-4 py-2">
-        <div className="flex items-center justify-center">
-          <div className="text-center">
-            <p className="text-lg font-bold text-gray-900 dark:text-white">
-              {user.farm || 'Finca El Dorado'}
-            </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Ganadero: {user.name || 'Juan Pérez'}
-            </p>
-          </div>
-        </div>
-      </div>
 
       <div className="flex flex-1">
         {/* Sidebar */}
@@ -181,6 +167,19 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 <ChevronLeft size={16} className={`transform transition-transform ${sidebarCollapsed ? 'rotate-180' : ''}`} />
               </button>
             </div>
+
+            {/* Botón para expandir sidebar cuando está colapsado */}
+            {sidebarCollapsed && (
+              <div className="hidden lg:flex justify-center px-2 py-2">
+                <button
+                  onClick={() => setSidebarCollapsed(false)}
+                  className="p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  title="Expandir sidebar"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            )}
 
             {/* Navigation Menu */}
             <nav className="flex-1 px-4 py-4 space-y-2">
@@ -223,6 +222,20 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
         {/* Main Content */}
         <main className="flex-1 flex flex-col">
+          {/* Toolbar con información de usuario/finca */}
+          <div className="bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20 border-b border-golden-200/30 dark:border-golden-700/30 px-6 py-2">
+            <div className="flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-base font-bold text-gray-900 dark:text-white">
+                  {user.farm || 'Finca El Dorado'}
+                </p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">
+                  Ganadero: {user.name || 'Juan Pérez'}
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="flex-1 p-6">
             {children}
           </div>
