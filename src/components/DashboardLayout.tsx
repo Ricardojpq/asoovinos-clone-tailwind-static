@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
@@ -9,8 +10,10 @@ import {
   User, 
   LogOut,
   ChevronRight,
-  Home
+  Home,
+  ChevronLeft
 } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -18,6 +21,7 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,8 +49,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Toolbar Superior */}
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+      {/* Navbar Principal */}
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
         <div className="flex items-center justify-between px-4 py-3">
           {/* Left Section */}
@@ -73,21 +77,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
             </div>
           </div>
 
-          {/* Center Section - User Info */}
-          <div className="flex-1 text-center px-4">
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20 px-4 py-2 rounded-lg">
-              <div className="text-center">
-                <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                  {user.farm || 'Finca El Dorado'}
-                </p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
-                  {user.name || 'Usuario'}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section - Navigation & Profile */}
+          {/* Right Section - Navigation & Controls */}
           <div className="flex items-center space-x-4">
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
@@ -95,7 +85,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 <button
                   key={item.path}
                   onClick={() => navigate(item.path)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isActive(item.path)
                       ? 'bg-golden-100 text-golden-800 dark:bg-golden-900/30 dark:text-golden-300'
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
@@ -105,6 +95,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 </button>
               ))}
             </nav>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Profile Menu */}
             <div className="relative">
@@ -147,24 +140,46 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         </div>
       </header>
 
-      <div className="flex">
+      {/* Toolbar con información de usuario/finca */}
+      <div className="bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20 border-b border-golden-200/30 dark:border-golden-700/30 px-4 py-2">
+        <div className="flex items-center justify-center">
+          <div className="text-center">
+            <p className="text-lg font-bold text-gray-900 dark:text-white">
+              {user.farm || 'Finca El Dorado'}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Ganadero: {user.name || 'Juan Pérez'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-1">
         {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+        <aside className={`fixed inset-y-0 left-0 z-30 bg-white dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}>
-          <div className="flex flex-col h-full pt-16 lg:pt-4">
-            {/* Sidebar Header - Solo visible en mobile */}
-            <div className="px-4 py-4 border-b border-gray-200 dark:border-gray-700 lg:hidden">
+        } ${sidebarCollapsed ? 'lg:w-16' : 'lg:w-64'} w-64`}>
+          <div className="flex flex-col h-full pt-20 lg:pt-4">
+            {/* Sidebar Header - Solo visible en desktop cuando no está colapsado */}
+            <div className={`px-4 py-4 border-b border-gray-200 dark:border-gray-700 lg:flex items-center justify-between ${sidebarCollapsed ? 'lg:hidden' : ''}`}>
               <div className="flex items-center space-x-3">
                 <img 
                   src="/lovable-uploads/9ae8c098-2ad8-49e2-aff0-a13a6f034fb3.png" 
                   alt="ASOCABRA" 
                   className="w-8 h-8 object-contain"
                 />
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-                  ASOCABRA
-                </h2>
+                {!sidebarCollapsed && (
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+                    ASOCABRA
+                  </h2>
+                )}
               </div>
+              <button
+                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                className="hidden lg:block p-1 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <ChevronLeft size={16} className={`transform transition-transform ${sidebarCollapsed ? 'rotate-180' : ''}`} />
+              </button>
             </div>
 
             {/* Navigation Menu */}
@@ -176,16 +191,21 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                     navigate(item.path);
                     setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${
+                  className={`w-full flex items-center px-4 py-3 rounded-lg text-left transition-all duration-200 group ${
                     isActive(item.path)
                       ? 'bg-golden-100 text-golden-800 dark:bg-golden-900/30 dark:text-golden-300 shadow-sm'
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`}
+                  } ${sidebarCollapsed ? 'lg:justify-center lg:px-2' : 'space-x-3'}`}
+                  title={sidebarCollapsed ? item.name : ''}
                 >
                   <item.icon size={20} />
-                  <span className="font-medium">{item.name}</span>
-                  {isActive(item.path) && (
-                    <ChevronRight size={16} className="ml-auto" />
+                  {(!sidebarCollapsed || sidebarOpen) && (
+                    <>
+                      <span className="font-medium">{item.name}</span>
+                      {isActive(item.path) && (
+                        <ChevronRight size={16} className="ml-auto" />
+                      )}
+                    </>
                   )}
                 </button>
               ))}
@@ -202,10 +222,22 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         )}
 
         {/* Main Content */}
-        <main className="flex-1 lg:ml-0">
-          <div className="p-6">
+        <main className="flex-1 flex flex-col">
+          <div className="flex-1 p-6">
             {children}
           </div>
+          
+          {/* Footer */}
+          <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-4 px-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                © 2024 ASOCABRA - Sistema de Gestión Ganadera
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-500">
+                Desarrollado con ❤️ para la ganadería venezolana
+              </div>
+            </div>
+          </footer>
         </main>
       </div>
     </div>
