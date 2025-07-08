@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/components/DashboardLayout';
 import { Users, Plus, Search, Phone, Mail, MapPin } from 'lucide-react';
