@@ -62,7 +62,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 <img 
                   src="/lovable-uploads/9ae8c098-2ad8-49e2-aff0-a13a6f034fb3.png" 
                   alt="ASOCABRA" 
-                  className="w-8 h-8 object-contain flex-shrink-0"
+                  className="w-12 h-12 object-contain flex-shrink-0"
                 />
                 {!sidebarCollapsed && (
                   <div>
