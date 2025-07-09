@@ -62,14 +62,14 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
             
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
+            {/* Logo - Solo visible en mobile cuando sidebar está cerrado */}
+            <div className="flex items-center space-x-3 lg:hidden">
               <img 
                 src="/lovable-uploads/9ae8c098-2ad8-49e2-aff0-a13a6f034fb3.png" 
                 alt="ASOCABRA" 
                 className="w-8 h-8 object-contain"
               />
-              <div className="hidden sm:block">
+              <div className="block sm:block">
                 <h1 className="text-lg font-bold text-gray-900 dark:text-white">
                   ASOCABRA
                 </h1>
@@ -145,32 +145,42 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         <aside className={`fixed inset-y-0 left-0 z-30 bg-white dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } ${sidebarCollapsed ? 'lg:w-16' : 'lg:w-64'} w-64`}>
-          <div className="flex flex-col h-full pt-20 lg:pt-4">
-            {/* Sidebar Header - Solo visible en desktop cuando no está colapsado */}
-            <div className={`px-4 py-4 border-b border-gray-200 dark:border-gray-700 lg:flex items-center justify-between ${sidebarCollapsed ? 'lg:hidden' : ''}`}>
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/9ae8c098-2ad8-49e2-aff0-a13a6f034fb3.png" 
-                  alt="ASOCABRA" 
-                  className="w-8 h-8 object-contain"
-                />
+          <div className="flex flex-col h-full">
+            {/* Sidebar Header - AHORA EN LA PARTE SUPERIOR */}
+            <div className={`px-4 py-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20 ${sidebarCollapsed ? 'lg:px-2' : ''}`}>
+              <div className="flex items-center justify-between">
+                <div className={`flex items-center ${sidebarCollapsed ? 'lg:justify-center' : 'space-x-3'}`}>
+                  <img 
+                    src="/lovable-uploads/9ae8c098-2ad8-49e2-aff0-a13a6f034fb3.png" 
+                    alt="ASOCABRA" 
+                    className="w-8 h-8 object-contain flex-shrink-0"
+                  />
+                  {!sidebarCollapsed && (
+                    <div>
+                      <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                        ASOCABRA
+                      </h2>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Sistema de Gestión
+                      </p>
+                    </div>
+                  )}
+                </div>
                 {!sidebarCollapsed && (
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-                    ASOCABRA
-                  </h2>
+                  <button
+                    onClick={() => setSidebarCollapsed(true)}
+                    className="hidden lg:block p-1 rounded-md text-gray-500 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                    title="Contraer sidebar"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
                 )}
               </div>
-              <button
-                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                className="hidden lg:block p-1 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <ChevronLeft size={16} className={`transform transition-transform ${sidebarCollapsed ? 'rotate-180' : ''}`} />
-              </button>
             </div>
 
             {/* Botón para expandir sidebar cuando está colapsado */}
             {sidebarCollapsed && (
-              <div className="hidden lg:flex justify-center px-2 py-2">
+              <div className="hidden lg:flex justify-center px-2 py-3 border-b border-gray-200 dark:border-gray-700">
                 <button
                   onClick={() => setSidebarCollapsed(false)}
                   className="p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -182,7 +192,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
             )}
 
             {/* Navigation Menu */}
-            <nav className="flex-1 px-4 py-4 space-y-2">
+            <nav className="flex-1 px-4 py-6 space-y-2">
               {menuItems.map((item) => (
                 <button
                   key={item.path}
@@ -209,6 +219,20 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 </button>
               ))}
             </nav>
+
+            {/* Footer del Sidebar */}
+            {(!sidebarCollapsed || sidebarOpen) && (
+              <div className="px-4 py-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="text-center">
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    v1.0.0
+                  </p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500">
+                    © 2024 ASOCABRA
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </aside>
 
