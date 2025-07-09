@@ -56,7 +56,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       } ${sidebarCollapsed ? 'lg:w-16' : 'lg:w-64'} w-64`}>
         <div className="flex flex-col h-full">
           {/* Sidebar Header - Con botón de toggle integrado */}
-          <div className={`px-4 py-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20`}>
+          <div className={`px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20`}>
             <div className="flex items-center justify-between">
               <div className={`flex items-center ${sidebarCollapsed ? 'lg:justify-center' : 'space-x-3'}`}>
                 <img 
@@ -159,7 +159,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 <img 
                   src="/lovable-uploads/9ae8c098-2ad8-49e2-aff0-a13a6f034fb3.png" 
                   alt="ASOCABRA" 
-                  className="w-8 h-8 object-contain"
+                  className="w-12 h-12 object-contain"
                 />
                 <div className="block sm:block">
                   <h1 className="text-lg font-bold text-gray-900 dark:text-white">
