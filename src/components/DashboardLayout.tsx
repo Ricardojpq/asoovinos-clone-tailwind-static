@@ -50,13 +50,13 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
-      {/* Sidebar - Ahora ocupa toda la altura */}
+      {/* Sidebar - Ocupa toda la altura */}
       <aside className={`fixed inset-y-0 left-0 z-30 bg-white dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } ${sidebarCollapsed ? 'lg:w-16' : 'lg:w-64'} w-64`}>
         <div className="flex flex-col h-full">
-          {/* Sidebar Header - EN LA PARTE SUPERIOR SIN MARGEN */}
-          <div className={`px-4 py-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20 ${sidebarCollapsed ? 'lg:px-2' : ''}`}>
+          {/* Sidebar Header - Con botón de toggle integrado */}
+          <div className={`px-4 py-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20`}>
             <div className="flex items-center justify-between">
               <div className={`flex items-center ${sidebarCollapsed ? 'lg:justify-center' : 'space-x-3'}`}>
                 <img 
@@ -75,30 +75,17 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                   </div>
                 )}
               </div>
-              {!sidebarCollapsed && (
-                <button
-                  onClick={() => setSidebarCollapsed(true)}
-                  className="hidden lg:block p-1 rounded-md text-gray-500 hover:bg-white/50 dark:hover:bg-gray-700/50"
-                  title="Contraer sidebar"
-                >
-                  <ChevronLeft size={16} />
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Botón para expandir sidebar cuando está colapsado */}
-          {sidebarCollapsed && (
-            <div className="hidden lg:flex justify-center px-2 py-3 border-b border-gray-200 dark:border-gray-700">
+              
+              {/* Botón toggle al lado del logo */}
               <button
-                onClick={() => setSidebarCollapsed(false)}
-                className="p-2 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
-                title="Expandir sidebar"
+                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                className="hidden lg:flex p-2 rounded-md text-gray-500 hover:bg-white/50 dark:hover:bg-gray-700/50 transition-colors"
+                title={sidebarCollapsed ? "Expandir sidebar" : "Contraer sidebar"}
               >
-                <ChevronRight size={16} />
+                {sidebarCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
               </button>
             </div>
-          )}
+          </div>
 
           {/* Navigation Menu */}
           <nav className="flex-1 px-4 py-6 space-y-2">
@@ -154,7 +141,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-h-screen">
         {/* Navbar Principal */}
         <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
           <div className="flex items-center justify-between px-4 py-3">
