@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
@@ -50,12 +49,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
-      {/* Sidebar - Ocupa toda la altura */}
+      {/* Sidebar */}
       <aside className={`fixed inset-y-0 left-0 z-30 bg-white dark:bg-gray-800 shadow-lg transform transition-all duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } ${sidebarCollapsed ? 'lg:w-16' : 'lg:w-64'} w-64`}>
+      } ${sidebarCollapsed ? 'lg:w-20' : 'lg:w-64'} w-64`}>
         <div className="flex flex-col h-full">
-          {/* Sidebar Header - Con botón de toggle integrado */}
+          {/* Sidebar Header */}
           <div className={`px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-golden-50 to-bronze-50 dark:from-golden-900/20 dark:to-bronze-900/20`}>
             <div className="flex items-center justify-between">
               <div className={`flex items-center ${sidebarCollapsed ? 'lg:justify-center' : 'space-x-3'}`}>
@@ -153,6 +152,17 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               >
                 {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
+              
+              {/* Botón para expandir sidebar cuando está colapsado en desktop */}
+              {sidebarCollapsed && (
+                <button
+                  onClick={() => setSidebarCollapsed(false)}
+                  className="hidden lg:flex p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  title="Expandir sidebar"
+                >
+                  <Menu size={20} />
+                </button>
+              )}
               
               {/* Logo - Solo visible en mobile cuando sidebar está cerrado */}
               <div className="flex items-center space-x-3 lg:hidden">
